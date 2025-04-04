@@ -12,6 +12,8 @@ export class HomePage {
   myStatus:string = ""
   constructor(private storage:Storage) {}
 
+
+  //func to retrieve status from storage
   async ionViewWillEnter() {
    await this.storage.create();
     this.myStatus = await this.storage.get("status")

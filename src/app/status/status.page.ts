@@ -16,8 +16,11 @@ import { Router } from '@angular/router';
 export class StatusPage implements OnInit {
   myStatus:String = "";
 
+
+  //injecting storage and router
   constructor(private storage:Storage, private router:Router) { }
 
+  //function to save and update status
   async onSave(){
     console.log(this.myStatus)
     await this.storage.create()
@@ -25,6 +28,7 @@ export class StatusPage implements OnInit {
     await this.storage.set("status", this.myStatus)
   }
 
+  //retrieving status from storage
   async ionViewWillEnter() {
     await this.storage.create();
      this.myStatus = await this.storage.get("status")
